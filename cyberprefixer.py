@@ -54,7 +54,8 @@ def get():
 
             # Remove attribution string
             if "-" in headline:
-                headline = headline.split("-")[0].strip()
+                headline = headline.split("-")[:-1]
+                headline = ' '.join(headline).strip()
 
             if process(headline):
                 break
@@ -85,7 +86,7 @@ def process(headline):
     for i, word in enumerate(tagged):
         # Avoid having two "cybers" in a row
         if is_replaceable(word) and not is_replaceable(tagged[i-1]):
-            headline = headline.replace(word[0], "cyber" + word[0], 1)
+            headline = headline.replace(" " + word[0], " cyber" + word[0], 1)
     if len(headline) > 140:
         return False
     else:
@@ -101,7 +102,7 @@ def tweet(headline):
     for tweet in tweets:
         if headline == tweet.text:
             return False
-    #api.update_status(headline)
+    api.update_status(headline)
     return True
 
 if __name__ == "__main__":
