@@ -24,6 +24,7 @@ import urllib2
 from secrets import *
 from bs4 import BeautifulSoup
 from topia.termextract import tag
+from time import gmtime, strftime
 
 tagger = tag.Tagger()
 tagger.initialize()
@@ -102,6 +103,14 @@ def tweet(headline):
     for tweet in tweets:
         if headline == tweet.text:
             return False
+
+    # Log tweet to file
+    f = open("cyberprefixer.log", 'a')
+    t = strftime("%d %b %Y %H:%M:%S", gmtime())
+    f.write("\n" + t + " " + headline)
+    f.close()
+
+    # Post tweet
     api.update_status(headline)
     return True
 
