@@ -18,7 +18,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import HTMLParser, urllib2
+import HTMLParser
+import tweepy
+import urllib2
 from secrets import *
 from bs4 import BeautifulSoup
 from topia.termextract import tag
@@ -46,7 +48,7 @@ def get():
             if "..." in headline:
                 continue
 
-            # Try to weed out all-caps sentences
+            # Try to weed out all-caps headlines
             if count_caps(h_split) >= len(h_split) - 3:
                 continue
 
@@ -69,6 +71,7 @@ def count_caps(headline):
 
 
 def is_replaceable(word):
+    # Prefix any noun (singular or plural) that begins with a lowercase letter
     if (word[1] == 'NN' or word[1] == 'NNS') and word[0][0].isalpha \
         and word[0][0].islower():
         return True
@@ -78,13 +81,28 @@ def is_replaceable(word):
 
 def process(headline):
     headline = hparser.unescape(headline)
-    print headline
     tagged = tagger(headline)
     for i, word in enumerate(tagged):
-        if is_replaceable(word) and i != 0 and not is_replaceable(tagged[i-1]):
+        # Avoid having two "cybers" in a row
+        if is_replaceable(word) and not is_replaceable(tagged[i-1]):
             headline = headline.replace(word[0], "cyber" + word[0], 1)
-    return False
+    if len(headline) > 140:
+        return False
+    else:
+        return tweet(headline)
 
+def tweet(headline):
+    auth = tweepy.OAuthHandler(C_KEY, C_SECRET)
+    auth.set_access_token(A_TOKEN, A_TOKEN_SECRET)
+    api = tweepy.API(auth)
+    tweets = api.user_timeline('CyberPrefixer')
+
+    # Check that we haven't tweeted this before
+    for tweet in tweets:
+        if headline == tweet.text:
+            return False
+    #api.update_status(headline)
+    return True
 
 if __name__ == "__main__":
     get()
