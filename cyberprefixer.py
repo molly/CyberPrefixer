@@ -18,29 +18,72 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import urllib.request, re
+import HTMLParser, urllib2
+from secrets import *
 from bs4 import BeautifulSoup
+from topia.termextract import tag
+
+tagger = tag.Tagger()
+tagger.initialize()
+hparser = HTMLParser.HTMLParser()
 
 
 def get():
     try:
-        response = urllib.request.urlopen(
+        request = urllib2.Request(
             "http://news.google.com/news?pz=1&cf=all&ned=us&hl=en&output=rss")
-    except urllib.error.URLError as e:
-        print(e.reason)
+        response = urllib2.urlopen(request)
+    except urllib2.URLError as e:
+        print e.reason
     else:
         html = BeautifulSoup(response.read())
         items = html.find_all('item')
         for item in items:
             headline = item.title.string
+            h_split = headline.split()
 
             # We don't want to use incomplete headlines
             if "..." in headline:
                 continue
 
+            # Try to weed out all-caps sentences
+            if count_caps(h_split) >= len(h_split) - 3:
+                continue
+
             # Remove attribution string
             if "-" in headline:
-                print(headline.split("-")[0].strip())
+                headline = headline.split("-")[0].strip()
+
+            if process(headline):
+                break
+            else:
+                continue
+
+
+def count_caps(headline):
+    count = 0
+    for word in headline:
+        if word[0].isupper():
+            count += 1
+    return count
+
+
+def is_replaceable(word):
+    if (word[1] == 'NN' or word[1] == 'NNS') and word[0][0].isalpha \
+        and word[0][0].islower():
+        return True
+    else:
+        return False
+
+
+def process(headline):
+    headline = hparser.unescape(headline)
+    print headline
+    tagged = tagger(headline)
+    for i, word in enumerate(tagged):
+        if is_replaceable(word) and i != 0 and not is_replaceable(tagged[i-1]):
+            headline = headline.replace(word[0], "cyber" + word[0], 1)
+    return False
 
 
 if __name__ == "__main__":
