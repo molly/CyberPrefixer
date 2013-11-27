@@ -23,23 +23,25 @@ from bs4 import BeautifulSoup
 
 
 def get():
-	try:
-		response = urllib.request.urlopen("http://news.google.com/news?pz=1&cf=all&ned=us&hl=en&output=rss")
-	except urllib.error.URLError as e:
-		print(e.reason)
-	else:
-		html = BeautifulSoup(response.read())
-		items = html.find_all('item')
-		for item in items:
-			headline = item.title.string
+    try:
+        response = urllib.request.urlopen(
+            "http://news.google.com/news?pz=1&cf=all&ned=us&hl=en&output=rss")
+    except urllib.error.URLError as e:
+        print(e.reason)
+    else:
+        html = BeautifulSoup(response.read())
+        items = html.find_all('item')
+        for item in items:
+            headline = item.title.string
 
-			# We don't want to use incomplete headlines
-			if "..." in headline:
-				continue
+            # We don't want to use incomplete headlines
+            if "..." in headline:
+                continue
 
-			# Remove attribution string
-			if "-" in headline:
-				print(headline.split("-")[0].strip())
+            # Remove attribution string
+            if "-" in headline:
+                print(headline.split("-")[0].strip())
+
 
 if __name__ == "__main__":
-	get()
+    get()
