@@ -88,7 +88,13 @@ def process(headline):
         # Avoid having two "cybers" in a row
         if is_replaceable(word) and not is_replaceable(tagged[i-1]):
             headline = headline.replace(" " + word[0], " cyber" + word[0], 1)
+
+    # Don't tweet anything that's too long
     if len(headline) > 140:
+        return False
+
+    # Don't tweet anything where a replacement hasn't been made
+    if "cyber" not in headline:
         return False
     else:
         return tweet(headline)
