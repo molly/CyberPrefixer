@@ -19,6 +19,7 @@
 # SOFTWARE.
 
 import HTMLParser
+import re
 import tweepy
 import urllib2
 from secrets import *
@@ -30,6 +31,10 @@ tagger = tag.Tagger()
 tagger.initialize()
 hparser = HTMLParser.HTMLParser()
 
+offensive = re.compile(r"\b(deaths?|dead(ly)?|dies?|hurts?|injur(e|es|ed|y)|"
+                       r"kill(ing|ed|er|s)?|fatal(ly|ity)?|shoo?t(s|ing|er)?|"
+                       r"crash(es|ed|ing)?|murder(s|er|ed|ing)?|hostages?|"
+                       r"pileups?)\b", flags=re.IGNORECASE)
 
 def get():
     try:
@@ -53,6 +58,10 @@ def get():
             if count_caps(h_split) >= len(h_split) - 3:
                 continue
 
+            # Skip anything too offensive
+            if not tact(headline):
+                continue
+
             # Remove attribution string
             if "-" in headline:
                 headline = headline.split("-")[:-1]
@@ -62,24 +71,6 @@ def get():
                 break
             else:
                 continue
-
-
-def count_caps(headline):
-    count = 0
-    for word in headline:
-        if word[0].isupper():
-            count += 1
-    return count
-
-
-def is_replaceable(word):
-    # Prefix any noun (singular or plural) that begins with a lowercase letter
-    if (word[1] == 'NN' or word[1] == 'NNS') and word[0][0].isalpha \
-        and word[0][0].islower():
-        return True
-    else:
-        return False
-
 
 def process(headline):
     headline = hparser.unescape(headline)
@@ -119,6 +110,28 @@ def tweet(headline):
     # Post tweet
     api.update_status(headline)
     return True
+
+def tact(headline):
+    # Avoid producing particularly tactless tweets
+    if re.search(offensive, headline) is None:
+        return True
+    else:
+        return False
+
+def count_caps(headline):
+    count = 0
+    for word in headline:
+        if word[0].isupper():
+            count += 1
+    return count
+
+def is_replaceable(word):
+    # Prefix any noun (singular or plural) that begins with a lowercase letter
+    if (word[1] == 'NN' or word[1] == 'NNS') and word[0][0].isalpha \
+        and word[0][0].islower():
+        return True
+    else:
+        return False
 
 if __name__ == "__main__":
     get()
