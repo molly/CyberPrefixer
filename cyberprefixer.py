@@ -34,7 +34,7 @@ hparser = HTMLParser.HTMLParser()
 offensive = re.compile(r"\b(deaths?|dead(ly)?|dies?|hurts?|injur(e|i?es|ed|y)|"
                        r"kill(ing|ed|er|s)?|fatal(ly|ity)?|shoo?t(s|ing|er)?|"
                        r"crash(es|ed|ing)?|murder(s|er|ed|ing)?|hostages?|"
-                       r"pile-?ups?)\b", flags=re.IGNORECASE)
+                       r"rape(s|d)?|assault(s|ed)?|pile-?ups?)\b", flags=re.IGNORECASE)
 
 def get():
     try:
