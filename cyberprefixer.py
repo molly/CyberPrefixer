@@ -31,10 +31,11 @@ tagger = tag.Tagger()
 tagger.initialize()
 hparser = HTMLParser.HTMLParser()
 
-offensive = re.compile(r"\b(deaths?|dead(ly)?|dies?|hurts?|injur(e|i?es|ed|y)|"
-                       r"kill(ing|ed|er|s)?|fatal(ly|ity)?|shoo?t(s|ing|er)?|"
-                       r"crash(es|ed|ing)?|murder(s|er|ed|ing)?|hostages?|"
-                       r"rape(s|d)?|assault(s|ed)?|pile-?ups?)\b", flags=re.IGNORECASE)
+offensive = re.compile(r"\b(deaths?|dead(ly)?|die(s|d)?|hurts?|"
+                       r"injur(e|i?es|ed|y)|kill(ing|ed|er|s)?|fatal(ly|ity)?|"
+                       r"shoo?t(s|ing|er)?|crash(es|ed|ing)?|"
+                       r"murder(s|er|ed|ing)?|hostages?|rape(s|d)?|"
+                       r"assault(s|ed)?|pile-?ups?)\b", flags=re.IGNORECASE)
 
 def get():
     try:
