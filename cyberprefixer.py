@@ -32,7 +32,7 @@ tagger.initialize()
 hparser = HTMLParser.HTMLParser()
 
 offensive = re.compile(r"\b(deaths?|dead(ly)?|die(s|d)?|hurts?|"
-                       r"injur(e|i?es|ed|y)|kill(ing|ed|er|s)?s?|"
+                       r"injur(e|i?es|ed|y)|kill(ing|ed|er|s)?s?|wound(ing|ed|s)?"
                        r"fatal(ly|ity)?|shoo?t(s|ing|er)?s?|crash(es|ed|ing)?|"
                        r"murder(s|er|ed|ing)?s?|hostages?|rape(s|d)?|"
                        r"assault(s|ed)?|pile-?ups?|massacre(s|d)?|"
