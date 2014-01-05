@@ -34,11 +34,12 @@ hparser = HTMLParser.HTMLParser()
 offensive = re.compile(r"\b(deaths?|dead(ly)?|die(s|d)?|hurts?|"
                        r"injur(e|i?es|ed|y)|kill(ing|ed|er|s)?s?|wound(ing|ed|s)?"
                        r"fatal(ly|ity)?|shoo?t(s|ing|er)?s?|crash(es|ed|ing)?|"
-                       r"murder(s|er|ed|ing)?s?|hostages?|rape(s|d)?|"
+                       r"murder(s|er|ed|ing)?s?|hostages?|rap(e|es|ed|ing)|"
                        r"assault(s|ed)?|pile-?ups?|massacre(s|d)?|"
                        r"assassinate(d|s)?|sla(y|in|yed|ys)|victims?|"
-                       r"execut(e|ion|ed)s?|gun(man|men)|suicid(e|al|es)|"
-					   r"bomb(s|ed)?|mass[- ]?graves?|bloodshed)\W?\b",
+                       r"execut(e|ion|ed)s?|gun(man|men|ned)|suicid(e|al|es))\W?\b",
+					   r"bomb(s|ed)?|mass[- ]?graves?|bloodshed)",
+                       r"blasts?|violen(t|ce))\W?\b"
                        flags=re.IGNORECASE)
 
 def get():
