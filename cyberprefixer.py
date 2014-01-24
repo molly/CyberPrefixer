@@ -1,4 +1,4 @@
-# Copyright (c) 2013 Molly White
+# Copyright (c) 2013-2014 Molly White
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -33,12 +33,12 @@ hparser = HTMLParser.HTMLParser()
 
 offensive = re.compile(r"\b(deaths?|dead(ly)?|die(s|d)?|hurts?|"
                        r"injur(e|i?es|ed|y)|kill(ing|ed|er|s)?s?|wound(ing|ed|s)?|"
-                       r"fatal(ly|ity)?|shoo?t(s|ing|er)?s?|crash(es|ed|ing)?|"
+                       r"fatal(ly|ity)?|shoo?t(s|ing|er)?s?|crash(es|ed|ing)?|terror[- ]?attack|"
                        r"murder(s|er|ed|ing)?s?|hostages?|rap(e|es|ed|ing)|"
                        r"assault(s|ed)?|pile-?ups?|massacre(s|d)?|"
-                       r"assassinate(d|s)?|sla(y|in|yed|ys)|victims?|"
+                       r"assassinate(d|s)?|sla(y|in|yed|ys)|victims?|tortur(e|ed|ing|es)|"
                        r"execut(e|ion|ed)s?|gun(man|men|ned)|suicid(e|al|es)|",
-                       r"bomb(s|ed)?|mass[- ]?graves?|bloodshed|",
+                       r"bomb(s|ed)?|mass[- ]?graves?|bloodshed|state[- ]?of[- ]?emergency|al[- ]?Qaeda|",
                        r"blasts?|violen(t|ce))\W?\b"
                        flags=re.IGNORECASE)
 
