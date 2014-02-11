@@ -31,15 +31,18 @@ tagger = tag.Tagger()
 tagger.initialize()
 hparser = HTMLParser.HTMLParser()
 
-offensive = re.compile(r"\b(deaths?|dead(ly)?|die(s|d)?|hurts?|sex[ -]?abuse|child[- ]?abuse|sex[- ]?trafficking|"
-                       r"injur(e|i?es|ed|y)|kill(ing|ed|er|s)?s?|wound(ing|ed|s)?|"
-                       r"fatal(ly|ity)?|shoo?t(s|ing|er)?s?|crash(es|ed|ing)?|terror[- ]?attack|"
+offensive = re.compile(r"\b(deaths?|dead(ly)?|die(s|d)?|hurts?|"
+                       r"(sex|child)[ -]?(abuse|trafficking)|"
+                       r"injur(e|i?es|ed|y)|kill(ing|ed|er|s)?s?|"
+                       r"wound(ing|ed|s)?|fatal(ly|ity)?|shoo?t(s|ing|er)?s?|"
+                       r"crash(es|ed|ing)?|terror[- ]?attack|"
                        r"murder(s|er|ed|ing)?s?|hostages?|rap(e|es|ed|ing)|"
                        r"assault(s|ed)?|pile-?ups?|massacre(s|d)?|"
-                       r"assassinate(d|s)?|sla(y|in|yed|ys)|victims?|tortur(e|ed|ing|es)|"
-                       r"execut(e|ion|ed)s?|gun(man|men|ned)|suicid(e|al|es)|",
-                       r"bomb(s|ed)?|mass[- ]?graves?|bloodshed|state[- ]?of[- ]?emergency|al[- ]?Qaeda|",
-                       r"blasts?|violen(t|ce))\W?\b"
+                       r"assassinate(d|s)?|sla(y|in|yed|ys)|victims?|"
+                       r"tortur(e|ed|ing|es)|execut(e|ion|ed)s?|"
+                       r"gun(man|men|ned)|suicid(e|al|es)|bomb(s|ed)?|"
+                       r"mass[- ]?graves?|bloodshed|state[- ]?of[- ]?emergency|"
+                       r"al[- ]?Qaeda|blasts?|violen(t|ce))\W?\b"
                        flags=re.IGNORECASE)
 
 def get():
