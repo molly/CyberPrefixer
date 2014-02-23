@@ -82,7 +82,7 @@ def get():
                 continue
 
 def process(headline):
-    headline = hparser.unescape(headline)
+    headline = hparser.unescape(headline).strip()
     tagged = tagger(headline)
     for i, word in enumerate(tagged):
         # Avoid having two "cybers" in a row
