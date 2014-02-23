@@ -137,7 +137,7 @@ def count_caps(headline):
 def is_replaceable(word):
     # Prefix any noun (singular or plural) that begins with a lowercase letter
     if (word[1] == 'NN' or word[1] == 'NNS') and word[0][0].isalpha \
-        and word[0][0].islower():
+        and word[0][0].islower() and len(word[0]) > 1:
         return True
     else:
         return False
