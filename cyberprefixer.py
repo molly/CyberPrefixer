@@ -19,6 +19,7 @@
 # SOFTWARE.
 
 import HTMLParser
+import os
 import re
 import tweepy
 import urllib2
@@ -27,6 +28,8 @@ from bs4 import BeautifulSoup
 from topia.termextract import tag
 from time import gmtime, strftime
 
+__location__ = os.path.realpath(
+    os.path.join(os.getcwd(), os.path.dirname(__file__)))
 tagger = tag.Tagger()
 tagger.initialize()
 hparser = HTMLParser.HTMLParser()
@@ -111,7 +114,7 @@ def tweet(headline):
             return False
 
     # Log tweet to file
-    f = open("cyberprefixer.log", 'a')
+    f = open(os.path.join(__location__, "cyberprefixer.log"), 'a')
     t = strftime("%d %b %Y %H:%M:%S", gmtime())
     f.write("\n" + t + " " + headline)
     f.close()
