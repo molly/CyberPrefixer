@@ -45,7 +45,8 @@ offensive = re.compile(r"\b(deaths?|dead(ly)?|die(s|d)?|hurts?|"
                        r"tortur(e|ed|ing|es)|execut(e|ion|ed)s?|"
                        r"gun(man|men|ned)|suicid(e|al|es)|bomb(s|ed)?|"
                        r"mass[- ]?graves?|bloodshed|state[- ]?of[- ]?emergency|"
-                       r"al[- ]?Qaeda|blasts?|violen(t|ce))|lethal\W?\b",
+                       r"al[- ]?Qaeda|blasts?|violen(t|ce))|lethal|",
+                       r"cancer(ous)?|\W?\b",
                        flags=re.IGNORECASE)
 
 def get():
