@@ -19,11 +19,11 @@
 # SOFTWARE.
 
 import HTMLParser
-import offensive
 import os
 import re
 import tweepy
 import urllib2
+from offensive import offensive
 from secrets import *
 from bs4 import BeautifulSoup
 from topia.termextract import tag
