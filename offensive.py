@@ -8,4 +8,4 @@ offensive = re.compile(
     r"execut(e|ion|ed)s?|gun(man|men|ned)|suicid(e|al|es)|bomb(s|ed|ing|ings|er|ers)?|"
     r"mass[- ]?graves?|bloodshed|state[- ]?of[- ]?emergency|al[- ]?Qaeda|blasts?|violen(t|ce)|"
     r"lethal|cancer(ous)?|stab(bed|bing|ber)?|casualt(y|ies)|sla(y|ying|yer|in)|"
-    r"drown(s|ing|ed|ings)?)\W?\b", flags=re.IGNORECASE)
+    r"drown(s|ing|ed|ings)?|bod(y|ies))\W?\b", flags=re.IGNORECASE)
