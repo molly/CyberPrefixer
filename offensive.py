@@ -9,5 +9,5 @@ offensive = re.compile(
     r"bomb(s|ed|ing|ings|er|ers)?|mass[- ]?graves?|bloodshed|state[- ]?of[- ]?emergency|"
     r"al[- ]?Qaeda|blasts?|violen(t|ce)|lethal|cancer(ous)?|stab(bed|bing|ber)?|casualt(y|ies)|"
     r"sla(y|ying|yer|in)|drown(s|ing|ed|ings)?|bod(y|ies)|kidnap(s|ped|per|pers|ping|pings)?|"
-    r"rampage|beat(ings?|en)|abduct(s|ed|ion)?s?|missing|behead(s|ed|ings?)?)\W?\b",
+    r"rampage|beat(ings?|en)|terminal(ly)|abduct(s|ed|ion)?s?|missing|behead(s|ed|ings?)?)\W?\b",
     flags=re.IGNORECASE)
