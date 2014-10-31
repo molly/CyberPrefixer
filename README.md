@@ -9,5 +9,5 @@ Twitter bot to prefix "cyber" to news headlines. Idea shamelessly stolen from [c
 * [tweepy](https://github.com/tweepy/tweepy) for Tweeting
 
 ## Thanks ##
-Thank you to @Guerillero and @Ironholds for helping me refine the offensive
+Thank you to [@Guerillero](https://github.com/Guerillero) and [@Ironholds](https://github.com/Ironholds) for helping me refine the offensive
 (inoffensive?) regex!
