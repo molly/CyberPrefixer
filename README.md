@@ -1,7 +1,8 @@
 CyberPrefixer
 =============
 
-Twitter bot to prefix "cyber" to news headlines. Idea shamelessly stolen from [cyberfiction](https://github.com/dariusk/cyberfiction) by [@dariusk](https://github.com/dariusk).
+Twitter bot to prefix "cyber" to news headlines. Idea shamelessly stolen from
+[cyberfiction](https://github.com/dariusk/cyberfiction) by [@dariusk](https://github.com/dariusk).
 
 ## Requires ##
 * [BeautifulSoup](http://www.crummy.com/software/BeautifulSoup/) for HTML parsing
@@ -9,5 +10,5 @@ Twitter bot to prefix "cyber" to news headlines. Idea shamelessly stolen from [c
 * [tweepy](https://github.com/tweepy/tweepy) for Tweeting
 
 ## Thanks ##
-Thank you to [@Guerillero](https://github.com/Guerillero) and [@Ironholds](https://github.com/Ironholds) for helping me refine the offensive
-(inoffensive?) regex!
+Thank you to [@Guerillero](https://github.com/Guerillero) and [@Ironholds](https://github.com/Ironholds)
+for helping me refine the offensive (inoffensive?) regex!
