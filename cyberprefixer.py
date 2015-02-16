@@ -35,6 +35,7 @@ tagger = tag.Tagger()
 tagger.initialize()
 hparser = HTMLParser.HTMLParser()
 
+
 def get():
     try:
         request = urllib2.Request(
@@ -71,6 +72,7 @@ def get():
             else:
                 continue
 
+
 def process(headline):
     headline = hparser.unescape(headline).strip()
     tagged = tagger(headline)
@@ -88,6 +90,7 @@ def process(headline):
         return False
     else:
         return tweet(headline)
+
 
 def tweet(headline):
     auth = tweepy.OAuthHandler(C_KEY, C_SECRET)
@@ -110,12 +113,14 @@ def tweet(headline):
     api.update_status(headline)
     return True
 
+
 def tact(headline):
     # Avoid producing particularly tactless tweets
     if re.search(offensive, headline) is None:
         return True
     else:
         return False
+
 
 def count_caps(headline):
     count = 0
@@ -124,10 +129,11 @@ def count_caps(headline):
             count += 1
     return count
 
+
 def is_replaceable(word):
     # Prefix any noun (singular or plural) that begins with a lowercase letter
     if (word[1] == 'NN' or word[1] == 'NNS') and word[0][0].isalpha \
-        and word[0][0].islower() and len(word[0]) > 1:
+            and word[0][0].islower() and len(word[0]) > 1:
         return True
     else:
         return False
