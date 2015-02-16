@@ -35,6 +35,11 @@ tagger = tag.Tagger()
 tagger.initialize()
 hparser = HTMLParser.HTMLParser()
 
+auth = tweepy.OAuthHandler(C_KEY, C_SECRET)
+auth.set_access_token(A_TOKEN, A_TOKEN_SECRET)
+api = tweepy.API(auth)
+tweets = api.user_timeline('CyberPrefixer')
+
 
 def get():
     try:
@@ -93,11 +98,6 @@ def process(headline):
 
 
 def tweet(headline):
-    auth = tweepy.OAuthHandler(C_KEY, C_SECRET)
-    auth.set_access_token(A_TOKEN, A_TOKEN_SECRET)
-    api = tweepy.API(auth)
-    tweets = api.user_timeline('CyberPrefixer')
-
     # Check that we haven't tweeted this before
     for tweet in tweets:
         if headline == tweet.text:
