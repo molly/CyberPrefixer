@@ -20,10 +20,9 @@
 
 import HTMLParser
 import os
-import re
 import tweepy
 import urllib2
-from offensive import offensive
+from offensive import tact
 from secrets import *
 from bs4 import BeautifulSoup
 from topia.termextract import tag
@@ -112,14 +111,6 @@ def tweet(headline):
     # Post tweet
     api.update_status(headline)
     return True
-
-
-def tact(headline):
-    # Avoid producing particularly tactless tweets
-    if re.search(offensive, headline) is None:
-        return True
-    else:
-        return False
 
 
 def count_caps(headline):

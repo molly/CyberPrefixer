@@ -12,3 +12,11 @@ offensive = re.compile(
     r"rampage|beat(ings?|en)|terminal(ly)?|abduct(s|ed|ion)?s?|missing|behead(s|ed|ings?)?|"
     r"homicid(e|es|al)|burn(s|ed|ing)? alive|decapitated?s?)\W?\b",
     flags=re.IGNORECASE)
+
+
+def tact(headline):
+    # Avoid producing particularly tactless tweets
+    if re.search(offensive, headline) is None:
+        return True
+    else:
+        return False
