@@ -8,7 +8,3 @@ Twitter bot to prefix "cyber" to news headlines. Idea shamelessly stolen from
 * [BeautifulSoup](http://www.crummy.com/software/BeautifulSoup/) for HTML parsing
 * [topia.termextract](https://pypi.python.org/pypi/topia.termextract/) for POS tagging
 * [tweepy](https://github.com/tweepy/tweepy) for Tweeting
-
-## Thanks ##
-Thank you to [@Guerillero](https://github.com/Guerillero) and [@Ironholds](https://github.com/Ironholds)
-for helping me refine the offensive (inoffensive?) regex!
