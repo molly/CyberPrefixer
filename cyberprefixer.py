@@ -18,6 +18,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+import codecs
 import HTMLParser
 import os
 import tweepy
@@ -103,7 +104,7 @@ def tweet(headline):
             return False
 
     # Log tweet to file
-    f = open(os.path.join(__location__, "cyberprefixer.log"), 'a')
+    f = codecs.open(os.path.join(__location__, "cyberprefixer.log"), 'a', encoding='utf-8')
     t = strftime("%d %b %Y %H:%M:%S", gmtime())
     f.write("\n" + t + " " + headline)
     f.close()
