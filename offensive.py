@@ -3,8 +3,8 @@ import re
 offensive = re.compile(
     r"\b(deaths?|dead(ly)?|die(s|d)?|hurts?|(sex(ual)?|child)[ -]?(abuse|trafficking|assault)|"
     r"injur(e|i?es|ed|y)|kill(ing|ed|er|s)?s?|wound(ing|ed|s)?|fatal(ly|ity)?|shoo?t(s|ing|er)?s?|"
-    r"crash(es|ed|ing)?|attack(s|ers?|ing|ed)?|murder(s|er|ed|ing)?s?|hostages?|rap(e|es|ed|ing)|"
-    r"assault(s|ed)?|rap(e|es|ed|ist|ists|ing)|pile-?ups?|massacre(s|d)?|assassinate(d|s)?|sla(y|in|yed|ys|ying|yings)|"
+    r"crash(es|ed|ing)?|attack(s|ers?|ing|ed)?|murder(s|er|ed|ing)?s?|hostages?|rap(e|es|ed|ist|ists|ing)|"
+    r"assault(s|ed)?|pile-?ups?|massacre(s|d)?|assassinate(d|s)?|sla(y|in|yed|ys|ying|yings)|"
     r"victims?|tortur(e|ed|ing|es)|execut(e|ion|ed|ioner)s?|gun(man|men|ned)|suicid(e|al|es)|"
     r"bomb(s|ed|ing|ings|er|ers)?|mass[- ]?graves?|bloodshed|state[- ]?of[- ]?emergency|"
     r"al[- ]?Qaeda|blasts?|violen(t|ce)|lethal|cancer(ous)?|stab(bed|bing|ber)?s?|casualt(y|ies)|"
