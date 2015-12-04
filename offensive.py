@@ -11,7 +11,7 @@ offensive = re.compile(
     r"sla(y|ying|yer|in)|drown(s|ing|ed|ings)?|bod(y|ies)|kidnap(s|ped|per|pers|ping|pings)?|"
     r"rampage|beat(ings?|en)|terminal(ly)?|abduct(s|ed|ion)?s?|missing|behead(s|ed|ings?)?|"
     r"homicid(e|es|al)|burn(s|ed|ing)? alive|decapitated?s?|jihadi?s?t?|hang(ed|ing|s)?|"
-    r"funerals?|traged(y|ies)|autops(y|ies)|child sex)\W?\b",
+    r"funerals?|traged(y|ies)|autops(y|ies)|child sex|sob(s|bing|bed)?)\W?\b",
     flags=re.IGNORECASE)
 
 
