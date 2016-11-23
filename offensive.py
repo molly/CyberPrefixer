@@ -30,7 +30,7 @@
 import re
 
 offensive = re.compile(
-    r"\b(deaths?|dead(ly)?|die(s|d)?|hurts?|(sex(ual)?|child)[ -]?(abuse|trafficking|assault)|"
+    r"\b(deaths?|dead(ly)?|die(s|d)?|hurts?|(sex(ual(ly?))?|child)[ -]?(abused?|trafficking|assault(ed|s)?)|"
     r"injur(e|i?es|ed|y)|kill(ing|ed|er|s)?s?|wound(ing|ed|s)?|fatal(ly|ity)?|shoo?t(s|ing|er)?s?|"
     r"crash(es|ed|ing)?|attack(s|ers?|ing|ed)?|murder(s|er|ed|ing)?s?|hostages?|rap(e|es|ed|ist|ists|ing)|"
     r"assault(s|ed)?|pile-?ups?|massacre(s|d)?|assassinate(d|s)?|sla(y|in|yed|ys|ying|yings)|"
