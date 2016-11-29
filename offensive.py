@@ -41,7 +41,7 @@ offensive = re.compile(
     r"rampage|beat(ings?|en)|terminal(ly)?|abduct(s|ed|ion)?s?|missing|behead(s|ed|ings?)?|"
     r"homicid(e|es|al)|burn(s|ed|ing)? alive|decapitated?s?|jihadi?s?t?|hang(ed|ing|s)?|"
     r"funerals?|traged(y|ies)|autops(y|ies)|child sex|sob(s|bing|bed)?|pa?edophil(e|es|ia)|9(/|-)11|"
-    r"Sept(ember|\.)? 11)\W?\b",
+    r"Sept(ember|\.)? 11|genocide)\W?\b",
     flags=re.IGNORECASE)
 
 
