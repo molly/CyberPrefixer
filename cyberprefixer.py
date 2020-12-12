@@ -49,7 +49,7 @@ def get():
     except urllib2.URLError as e:
         print e.reason
     else:
-        html = BeautifulSoup(response.read())
+        html = BeautifulSoup(response.read(), features="html.parser")
         items = html.find_all('item')
         for item in items:
             headline = item.title.string
